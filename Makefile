@@ -1,20 +1,26 @@
 NAME		=	so_long
 
-SRC			=	main.c
-
-OBJ			=	$(SRC:.c=.o)
-
 CC			=	clang
 
 FLAG		=	-Wall -Wextra -Werror
+
+MLX_FLAG	=	-lX11 -lXext
 
 MLX_PATH	=	./minilibx-linux/
 
 MLX_LIB		=	$(addprefix $(MLX_PATH),libmlx.a)
 
-MLX_FLAG	=	-lX11 -lXext
-
 MLX_EX		=	$(MLX_LIB) $(MLX_FLAG)
+
+C_FILE		=	main.c
+
+SRC_DIR		=	./core/
+
+INC_DIR		=	./includes/
+
+SRC			=	$(addprefix $(SRC_DIR),$(C_FILE))
+
+OBJ			=	$(SRC:.c=.o)
 
 .o: %.c
 	$(cc) $(FLAG) -c $< -o $@
