@@ -6,7 +6,7 @@
 /*   By: asimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 15:53:28 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/04 19:07:20 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/05 20:33:27 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static int	ft_strnchr(char *str, char sep)
 	return (i);
 }
 
-
 char	**ft_split(char *str, char sep)
 {
 	int		i;
@@ -52,7 +51,7 @@ char	**ft_split(char *str, char sep)
 
 	i = 0;
 	y = 0;
-	ret = (char **)malloc(sizeof(char *) * (ft_charcpt(str, sep) + 2));
+	ret = (char **)malloc(sizeof(char *) * (ft_charcpt(str, sep) + 1));
 	if (ret == NULL)
 		return (NULL);
 	while (str[i])
@@ -60,7 +59,7 @@ char	**ft_split(char *str, char sep)
 		cpt = ft_strnchr(&str[i], sep);
 		ret[y] = ft_strncpy(&str[i], cpt);
 		if (str[i + cpt] != '\0')
-			i += (cpt + 2);
+			i += (cpt + 1);
 		else
 			i += cpt;
 		y++;

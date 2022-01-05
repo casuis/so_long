@@ -2,7 +2,7 @@ NAME		=	so_long
 
 CC			=	clang
 
-FLAG		=	-Wall -Wextra -Werror
+FLAG		=	-Wall -Wextra -Werror -g3
 
 MLX_FLAG	=	-lX11 -lXext
 

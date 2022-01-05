@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/05 13:41:47 by asimon            #+#    #+#             */
+/*   Updated: 2022/01/05 13:41:49 by asimon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/so_long.h"
 
 int	ft_strlen(char *str)
@@ -10,9 +22,10 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-void	ft_error(char *str)
+void	*ft_error(char *str)
 {
 	write(2, str, ft_strlen(str));
+	return (0);
 }
 
 char	*ft_strdup(char *str)
