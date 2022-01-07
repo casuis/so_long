@@ -4,6 +4,10 @@ CC			=	clang
 
 FLAG		=	-Wall -Wextra -Werror -g3
 
+LIBFT_PATH	=	./libft/
+
+LIBFT_LIB	=	$(addprefix $(LIBFT_PATH),libft.a)
+
 MLX_FLAG	=	-lX11 -lXext
 
 MLX_PATH	=	./minilibx-linux/
@@ -23,7 +27,7 @@ SRC			=	$(addprefix $(SRC_DIR),$(C_FILE))
 OBJ			=	$(SRC:.c=.o)
 
 .o: %.c
-	$(cc) $(FLAG) -c $< -o $@
+	$(CC) $(FLAG) -c $< -o $@
 
 all: $(NAME)
 
@@ -32,9 +36,14 @@ mlx:
 	@make -sC $(MLX_PATH)
 	@echo "\033[1;32mMLX_lib created"
 
-$(NAME): mlx $(OBJ)
+libft:
+	@echo "\033[0;33m\nCOMPILING $(LIBFT_PATH)"
+	@make -C $(LIBFT_PATH)
+	@echo "\033[1;32mLIBFT_lib created"
+
+$(NAME): libft mlx $(OBJ)
 	@echo "\033[0;33m\nCOMPILING SO_LONG...\n"
-	@$(CC) $(OBJ) $(MLX_EX) -o $(NAME)
+	@$(CC) $(LIBFT_LIB) $(OBJ) $(MLX_EX) -o $(NAME)
 	@echo "\033[1;32m./so_long created\n"
 
 clean:
