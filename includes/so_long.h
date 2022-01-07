@@ -6,7 +6,7 @@
 /*   By: asimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 19:21:35 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/05 19:36:58 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/07 22:25:16 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,22 @@
 # include <X11/X.h>
 # include <fcntl.h>
 
-# define WINDOW_WIDTH 1800
-# define WINDOW_HEIGHT 900
-
 # define MLX_ERROR 1
 
 # define RED_PIXEL 0xFF0000
 # define GREEN_PIXEL 0x00FF00
 
+
 typedef struct	img_s
 {
 	void	*img_floor;
-	void	*img_perso;
+	void	*img_player;
 	void	*img_exit;
 	void	*img_wall;
 	void	*img_collect;
 	int		height;
 	int		width;
-	char	*perso;
+	char	*player;
 	char	*floor;
 	char	*wall;
 	char	*collect;
@@ -58,6 +56,12 @@ typedef struct	cnt_s
 	int		count_c;
 }				cnt_t;
 
+typedef struct pos_s
+{
+	int		x;
+	int		y;
+}				pos_t;
+
 typedef struct	data_s
 {
 	void	*mlx_ptr;
@@ -68,14 +72,9 @@ typedef struct	data_s
 	char	**map;
 	cnt_t	content;
 	img_t	img;
+	pos_t	pos;
+	int		count;
 }				data_t;
-
-typedef struct pos_s
-{
-	int		x;
-	int		y;
-}				pos_t;
-
 
 int		chk_map(char **argv);
 int		ft_strchr(char *str, char *cmp);
@@ -95,5 +94,6 @@ void	set_content(cnt_t *content);
 int		ft_check_format(char **map);
 char	**map_core(char **str, data_t *data);
 void	set_img(data_t *data);
+void	ft_check_content(data_t *data);
 
 #endif
