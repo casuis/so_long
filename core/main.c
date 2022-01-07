@@ -22,42 +22,6 @@ int	handle_input(int keysym, data_t *data)
 	return (0);
 }
 
-int	rend_one_block(data_t *data)
-{
-	void	*img_txt;
-	int		width;
-	int		height;
-	int		x;
-	int		y;
-
-	width = 128;
-	height = 128;
-	x = 0;
-	y = 0;
-	img_txt = mlx_xpm_file_to_image(data->mlx_ptr, "./silver.xpm", &width, &height);
-	if (img_txt != NULL)
-	{
-		while (y < WINDOW_WIDTH)
-		{
-			mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, img_txt, y, 0);
-			y += width;
-		}
-		
-	}
-	else
-		printf("fail to open img");
-	return (1);
-}
-
-int	render(data_t *data)
-{
-	if (data->mlx_ptr != NULL)
-	{
-		rend_one_block(data);
-	}
-	return (0);
-}
-
 int	main(int argc, char **argv)
 {
 	data_t	data;

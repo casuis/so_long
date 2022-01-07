@@ -6,7 +6,7 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:40:39 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/05 20:33:36 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/07 23:06:42 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char	**parse_map(int fd, data_t *data)
 
 	i = 1;
 	data->map = ft_split(get_map(fd), '\n');
+	ft_check_content(data);
 	if (!(ft_check_format(data->map)))
 		return (NULL);
 	if (!(ft_check_line(data->map[0], data->content.wall, data)))
@@ -59,6 +60,10 @@ char	**parse_map(int fd, data_t *data)
 			return (NULL);
 		i++;
 	}
+	data->height = i;
+	if (data->content.count_c == 0 || data->content.count_e != 1
+		|| data->content.count_p != 1)
+		return (ft_error("Error\nNeed 1 Player/Exit and at least 1 Object\n"));
 	if (!(ft_check_line(data->map[i - 1], data->content.wall, data)))
 		return (NULL);
 	if (data->content.count_p == 0 || data->content.count_e == 0)

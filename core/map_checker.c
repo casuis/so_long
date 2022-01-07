@@ -6,7 +6,7 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 12:45:16 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/05 18:10:35 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/07 23:06:41 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,16 @@ int	ft_check_line(char *map_line, char wall, data_t *data)
 		}
 		i++;
 	}
-	data->height = i;
 	return (1);
 }
 
-int	ft_check_other(char *map_line,cnt_t *content)
+int	ft_check_other(char *map_line, cnt_t *content)
 {
 	int		i;
 
 	i = 0;
 	while (map_line[i])
 	{
-		if (map_line[i] == content->player)
-			content->count_p += 1;
-		if (map_line[i] == content->exit)
-			content->count_e += 1;
 		if (content->count_e > 1 || content->count_p > 1)
 		{
 			ft_error("Error\nWrong number of player or exit\n");
@@ -72,6 +67,30 @@ int	ft_check_other(char *map_line,cnt_t *content)
 		i++;
 	}
 	return (1);
+}
+
+void	ft_check_content(data_t *data)
+{
+	int		i;
+	int		y;
+
+	i = 0;
+	y = 0;
+	while (data->map[i])
+	{
+		while (data->map[i][y])
+		{
+			if (data->map[i][y] == data->content.collect)
+				data->content.count_c += 1;
+			if (data->map[i][y] == data->content.player)
+				data->content.count_p += 1;
+			if (data->map[i][y] == data->content.exit)
+				data->content.count_e += 1;
+			y++;
+		}
+		y = 0;
+		i++;
+	}
 }
 
 int	ft_same_char(char *str)
