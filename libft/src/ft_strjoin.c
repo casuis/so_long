@@ -1,56 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.c                                              :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 15:53:57 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/07 19:29:44 by asimon           ###   ########.fr       */
+/*   Created: 2022/01/04 19:07:33 by asimon            #+#    #+#             */
+/*   Updated: 2022/01/08 22:05:27 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../includes/libft.h"
 
-char	*ft_stradd(char *str, char buff)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
+	int		y;
 	char	*ret;
 
 	i = 0;
-	ret = (char *)malloc(sizeof(char) * (ft_strlen(str) + 2));
+	y = 0;
+	ret = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (ret == NULL)
 		return (NULL);
-	while (str[i])
+	while (s1[i])
 	{
-		ret[i] = str[i];
+		ret[i] = s1[i];
 		i++;
 	}
-	free(str);
-	ret[i] = buff;
-	ret[++i] = '\0';
-	return (ret);
-}
-
-int	gnl(int fd, char **str)
-{
-	char			buff;
-	int				ret;
-
-	ret = read(fd, &buff, 1);
-	while (ret > 0)
+	while (s2[y])
 	{
-		*str = ft_stradd(*str, buff);
-		if (buff == '\n')
-			return (ret);
-		else
-			ret += 1;
-	ret = read(fd, &buff, 1);
+		ret[i] = s2[y];
+		i++;
+		y++;
 	}
-	if (ret == 0)
-	{
-		free(*str);
-		*str = NULL;
-	}
+	ret[i] = '\0';
 	return (ret);
 }

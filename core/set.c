@@ -6,13 +6,13 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:16:08 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/08 20:05:21 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:28:23 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	set_content(cnt_t *content)
+void	set_content(t_cnt *content)
 {
 	content->exit = 'E';
 	content->player = 'P';
@@ -24,15 +24,15 @@ void	set_content(cnt_t *content)
 	content->count_c = 0;
 }
 
-void	set_img(data_t *data)
+void	set_img(t_data *data)
 {
 	data->img.height = 80;
 	data->img.width = 80;
-	data->img.floor = "../rsrc/floor_texture.xpm";
-	data->img.wall = "../rsrc/wall_texture.xpm";
-	data->img.collect = "../rsrc/collect.xpm";
-	data->img.player = "../rsrc/mario_player.xpm";
-	data->img.exit = "../rsrc/exit_texture.xpm";
+	data->img.floor = "./rsrc/floor_texture.xpm";
+	data->img.wall = "./rsrc/wall_texture.xpm";
+	data->img.collect = "./rsrc/collect.xpm";
+	data->img.player = "./rsrc/mario_player.xpm";
+	data->img.exit = "./rsrc/exit_texture.xpm";
 	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr, data->img.wall,
 			&(data->img.width), &(data->img.height));
 	data->img.img_floor = mlx_xpm_file_to_image(data->mlx_ptr, data->img.floor,

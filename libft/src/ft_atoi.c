@@ -6,12 +6,11 @@
 /*   By: asimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 22:53:47 by asimon            #+#    #+#             */
-/*   Updated: 2021/11/21 20:00:20 by arthur           ###   ########.fr       */
+/*   Updated: 2022/01/08 21:38:37 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "../incl/push_swap.h"
+#include "../includes/libft.h"
 
 long long int	ft_atoi(const char *str)
 {

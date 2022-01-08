@@ -6,11 +6,11 @@
 /*   By: asimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 18:50:26 by asimon            #+#    #+#             */
-/*   Updated: 2021/11/21 19:59:53 by arthur           ###   ########.fr       */
+/*   Updated: 2022/01/08 21:38:55 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static char	*ft_count(int nb, int *size)
 {

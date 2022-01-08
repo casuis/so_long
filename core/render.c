@@ -6,13 +6,13 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 19:54:43 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/08 20:02:09 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:29:28 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	render_background(data_t *data)
+void	render_background(t_data *data)
 {
 	int		i;
 	int		y;
@@ -34,7 +34,7 @@ void	render_background(data_t *data)
 	}
 }
 
-void	render_other(data_t *data)
+void	render_other(t_data *data)
 {
 	int		i;
 	int		y;
@@ -62,14 +62,14 @@ void	render_other(data_t *data)
 	}
 }
 
-int	render(data_t *data)
+int	render(t_data *data)
 {
 	render_background(data);
 	render_other(data);
 	return (0);
 }
 
-void	core_render(data_t *data)
+void	core_render(t_data *data)
 {
 	data->mlx_win = mlx_new_window(data->mlx_ptr,
 			(data->width * data->img.width), (data->height * data->img.height),
@@ -86,7 +86,7 @@ void	core_render(data_t *data)
 	end(data);
 }
 
-void	print_img(data_t *data, void *img, int x, int y)
+void	print_img(t_data *data, void *img, int x, int y)
 {
 	mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, img,
 		data->img.width * x, data->img.height * y);

@@ -6,11 +6,11 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 18:28:35 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/07 18:29:31 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 21:36:22 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "../includes/libft.h"
 
 void	ft_putstr(char *str)
 {

@@ -6,29 +6,24 @@
 /*   By: asimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 19:21:35 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/07 22:25:16 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:28:17 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "../libft/includes/libft.h"
+# include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <string.h>
-# include "../includes/mlx.h"
 # include <X11/keysym.h>
 # include <X11/X.h>
 # include <fcntl.h>
 
-# define MLX_ERROR 1
-
-# define RED_PIXEL 0xFF0000
-# define GREEN_PIXEL 0x00FF00
-
-
-typedef struct	img_s
+typedef struct img_s
 {
 	void	*img_floor;
 	void	*img_player;
@@ -42,9 +37,9 @@ typedef struct	img_s
 	char	*wall;
 	char	*collect;
 	char	*exit;
-}				img_t;
+}				t_img;
 
-typedef struct	cnt_s
+typedef struct cnt_s
 {
 	char	exit;
 	char	collect;
@@ -54,46 +49,58 @@ typedef struct	cnt_s
 	int		count_p;
 	int		count_e;
 	int		count_c;
-}				cnt_t;
+}				t_cnt;
 
 typedef struct pos_s
 {
 	int		x;
 	int		y;
-}				pos_t;
+}				t_pos;
 
-typedef struct	data_s
+typedef struct data_s
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
-	img_t	*mlx_img;
 	int		width;
 	int		height;
 	char	**map;
-	cnt_t	content;
-	img_t	img;
-	pos_t	pos;
+	t_cnt	content;
+	t_img	img;
+	t_pos	pos;
 	int		count;
-}				data_t;
+}				t_data;
 
-int		chk_map(char **argv);
 int		ft_strchr(char *str, char *cmp);
 void	*ft_error(char *str);
-int		ft_strlen(char *str);
-char	*ft_strdup(char *str);
-char	*ft_strncpy(char *str, int nb);
-int		gnl(int fd, char **str);
-char	*ft_strjoin(char *s1, char *s2);
+int		ft_same_char(char *str);
+
 int		ft_same_char(char *str);
 char	*get_map(int fd);
-char	**ft_split(char *str, char sep);
-int		ft_check_col(char *map_line, char col, data_t *data);
-int		ft_check_line(char *map_line, char wall, data_t *data);
-int		ft_check_other(char *map_line, cnt_t *content);
-void	set_content(cnt_t *content);
+char	**map_core(char **str, t_data *data);
+int		chk_map(char **argv);
+
+int		ft_check_col(char *map_line, char col, t_data *data);
+int		ft_check_line(char *map_line, char wall);
+int		ft_check_other(char *map_line, t_cnt *content);
+void	ft_check_content(t_data *data);
 int		ft_check_format(char **map);
-char	**map_core(char **str, data_t *data);
-void	set_img(data_t *data);
-void	ft_check_content(data_t *data);
+int		chk_collect(t_data *data);
+
+void	set_img(t_data *data);
+void	set_content(t_cnt *content);
+
+void	core_render(t_data *data);
+int		render(t_data *data);
+void	render_other(t_data *data);
+void	render_background(t_data *data);
+void	render_down(t_data *data);
+void	render_left(t_data *data);
+void	render_right(t_data *data);
+void	render_top(t_data *data);
+void	print_img(t_data *data, void *img, int x, int y);
+
+int		key_press(int keysym, t_data *data);
+int		chk_collect(t_data *data);
+int		end(t_data *data);
 
 #endif

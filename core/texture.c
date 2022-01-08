@@ -6,31 +6,13 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:51:23 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/08 20:10:39 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:30:18 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	ft_same_char(char *str)
-{
-	int		i;
-	char	buff;
-
-	i = 0;
-	buff = '1';
-	if (str == NULL)
-		return (-1);
-	while (str[i])
-	{
-		if (str[i] != buff && str[i] != '\n')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	chk_collect(data_t *data)
+int	chk_collect(t_data *data)
 {
 	int		i;
 	int		y;
@@ -53,7 +35,7 @@ int	chk_collect(data_t *data)
 	return (count);
 }
 
-int	end(data_t *data)
+int	end(t_data *data)
 {
 	int		i;
 
@@ -75,11 +57,11 @@ int	end(data_t *data)
 	}
 	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
-	printf("Felicitation vous avez gagne en : %d coup !", data->count);
+	printf("Felicitation vous avez gagne en : %d coup !\n", data->count);
 	exit(0);
 }
 
-int	key_press(int keysym, data_t *data)
+int	key_press(int keysym, t_data *data)
 {
 	if (keysym == XK_Escape)
 		end(data);
@@ -91,14 +73,18 @@ int	key_press(int keysym, data_t *data)
 		render_left(data);
 	if (keysym == XK_s)
 		render_down(data);
+	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	data_t	data;
+	t_data	data;
 
-	if (argc == 1)
+	if (argc != 2)
+	{
+		ft_error("Error\nThis programe take 1 argument .ber\n");
 		return (0);
+	}
 	else
 	{
 		data.count = 0;

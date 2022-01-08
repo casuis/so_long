@@ -6,7 +6,7 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:40:39 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/08 20:03:34 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:28:21 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*get_map(int fd)
 	return (NULL);
 }
 
-void	*ft_free_map(data_t *data)
+void	*ft_free_map(t_data *data)
 {
 	int		i;
 
@@ -55,17 +55,16 @@ void	*ft_free_map(data_t *data)
 	return (0);
 }
 
-char	**parse_map(int fd, data_t *data)
+char	**parse_map(int fd, t_data *data)
 {
 	int		i;
-	char	**test;
 
 	i = 1;
 	data->map = ft_split(get_map(fd), '\n');
 	ft_check_content(data);
 	if (!(ft_check_format(data->map)))
 		return (ft_free_map(data));
-	if (!(ft_check_line(data->map[0], data->content.wall, data)))
+	if (!(ft_check_line(data->map[0], data->content.wall)))
 		return (ft_free_map(data));
 	while (data->map[i] != NULL)
 	{
@@ -76,12 +75,12 @@ char	**parse_map(int fd, data_t *data)
 		i++;
 	}
 	data->height = i;
-	if (!(ft_check_line(data->map[i - 1], data->content.wall, data)))
+	if (!(ft_check_line(data->map[i - 1], data->content.wall)))
 		return (ft_free_map(data));
 	return (data->map);
 }
 
-char	**map_core(char **str, data_t *data)
+char	**map_core(char **str, t_data *data)
 {
 	int		fd;
 

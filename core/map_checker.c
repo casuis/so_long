@@ -6,13 +6,13 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 12:45:16 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/08 20:09:16 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:29:05 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	ft_check_col(char *map_line, char wall, data_t *data)
+int	ft_check_col(char *map_line, char wall, t_data *data)
 {
 	int		i;
 
@@ -28,7 +28,7 @@ int	ft_check_col(char *map_line, char wall, data_t *data)
 	return (1);
 }
 
-int	ft_check_line(char *map_line, char wall, data_t *data)
+int	ft_check_line(char *map_line, char wall)
 {
 	int		i;
 
@@ -45,7 +45,7 @@ int	ft_check_line(char *map_line, char wall, data_t *data)
 	return (1);
 }
 
-int	ft_check_other(char *map_line, cnt_t *content)
+int	ft_check_other(char *map_line, t_cnt *content)
 {
 	int		i;
 
@@ -69,7 +69,7 @@ int	ft_check_other(char *map_line, cnt_t *content)
 	return (1);
 }
 
-void	ft_check_content(data_t *data)
+void	ft_check_content(t_data *data)
 {
 	int		i;
 	int		y;

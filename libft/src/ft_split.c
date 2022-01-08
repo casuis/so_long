@@ -6,11 +6,11 @@
 /*   By: asimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 15:53:28 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/07 19:28:36 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 21:44:03 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../includes/libft.h"
 
 static int	ft_charcpt(char *str, char chr)
 {
@@ -57,7 +57,7 @@ char	**ft_split(char *str, char sep)
 	while (str[i])
 	{
 		cpt = ft_strnchr(&str[i], sep);
-		ret[y] = strndup(&str[i], cpt);
+		ret[y] = ft_strncpy(&str[i], cpt);
 		if (str[i + cpt] != '\0')
 			i += (cpt + 1);
 		else
@@ -65,5 +65,6 @@ char	**ft_split(char *str, char sep)
 		y++;
 	}
 	ret[y] = NULL;
+	free(str);
 	return (ret);
 }

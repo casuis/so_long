@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_mouv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:40:26 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/08 19:53:01 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:29:49 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	render_top(data_t *data)
+void	render_top(t_data *data)
 {
 	int		pos_x;
 	int		pos_y;
@@ -34,7 +34,7 @@ void	render_top(data_t *data)
 	}
 }
 
-int	render_right(data_t *data)
+void	render_right(t_data *data)
 {
 	int		pos_x;
 	int		pos_y;
@@ -56,7 +56,7 @@ int	render_right(data_t *data)
 	}
 }
 
-void	render_left(data_t *data)
+void	render_left(t_data *data)
 {
 	int		pos_x;
 	int		pos_y;
@@ -78,7 +78,7 @@ void	render_left(data_t *data)
 	}
 }
 
-void	render_down(data_t *data)
+void	render_down(t_data *data)
 {
 	int		pos_x;
 	int		pos_y;
