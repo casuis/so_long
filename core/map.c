@@ -6,7 +6,7 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:40:39 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/07 23:06:42 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 20:03:34 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*get_map(int fd)
 	char_count = gnl(fd, &line_map);
 	if (char_count > 0)
 	{
-		tmp_buff = ft_strdup("");
+		tmp_buff = buff;
 		while (char_count > 0)
 		{
 			buff = ft_strjoin(buff, line_map);
@@ -40,6 +40,21 @@ char	*get_map(int fd)
 	return (NULL);
 }
 
+void	*ft_free_map(data_t *data)
+{
+	int		i;
+
+	i = 0;
+	while (data->map[i] != NULL)
+	{
+		free(data->map[i]);
+		i++;
+	}
+	free(data->map);
+	data->map = NULL;
+	return (0);
+}
+
 char	**parse_map(int fd, data_t *data)
 {
 	int		i;
@@ -49,25 +64,20 @@ char	**parse_map(int fd, data_t *data)
 	data->map = ft_split(get_map(fd), '\n');
 	ft_check_content(data);
 	if (!(ft_check_format(data->map)))
-		return (NULL);
+		return (ft_free_map(data));
 	if (!(ft_check_line(data->map[0], data->content.wall, data)))
-		return (NULL);
+		return (ft_free_map(data));
 	while (data->map[i] != NULL)
 	{
 		if (!(ft_check_col(data->map[i], data->content.wall, data)))
-			return (NULL);
+			return (ft_free_map(data));
 		else if (!(ft_check_other(data->map[i], &(data->content))))
-			return (NULL);
+			return (ft_free_map(data));
 		i++;
 	}
 	data->height = i;
-	if (data->content.count_c == 0 || data->content.count_e != 1
-		|| data->content.count_p != 1)
-		return (ft_error("Error\nNeed 1 Player/Exit and at least 1 Object\n"));
 	if (!(ft_check_line(data->map[i - 1], data->content.wall, data)))
-		return (NULL);
-	if (data->content.count_p == 0 || data->content.count_e == 0)
-		return (ft_error("Error\nWrong number of exit or player\n"));
+		return (ft_free_map(data));
 	return (data->map);
 }
 
@@ -86,6 +96,13 @@ char	**map_core(char **str, data_t *data)
 			data->map = parse_map(fd, data);
 		else
 			return (ft_error("Error\nFailed to open file\n"));
+		if ((data->content.count_c == 0 || data->content.count_e != 1
+				|| data->content.count_p != 1) && data->map != NULL)
+		{
+			ft_free_map(data);
+			return (ft_error(
+					"Error\nNeed 1 Player/Exit and at least 1 Object\n"));
+		}
 	}
 	return (data->map);
 }

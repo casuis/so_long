@@ -6,7 +6,7 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 12:45:16 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/07 23:06:41 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 20:09:16 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,24 +91,6 @@ void	ft_check_content(data_t *data)
 		y = 0;
 		i++;
 	}
-}
-
-int	ft_same_char(char *str)
-{
-	int		i;
-	char	buff;
-
-	i = 0;
-	buff = '1';
-	if (str == NULL)
-		return (-1);
-	while (str[i])
-	{
-		if (str[i] != buff && str[i] != '\n')
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 int	ft_check_format(char **map)
