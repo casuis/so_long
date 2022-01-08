@@ -69,6 +69,7 @@ clean:
 fclean: clean
 	@echo "\033[0;31mDeleting so_long executable..."
 	@rm -f $(NAME)
+	@make fclean -C $(LIBFT_PATH)
 	@echo "\033[1;32mDone\n"
 
 re: fclean all

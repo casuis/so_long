@@ -6,7 +6,7 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:40:26 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/08 23:29:49 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:49:53 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,14 @@ void	render_top(t_data *data)
 			printf("count: %d\n", data->count);
 		}
 		else
+		{
 			if (chk_collect(data) == 0)
+			{
+				printf("Felicitation vous avez gagne en : %d coup !\n",
+					data->count);
 				end(data);
+			}
+		}
 	}
 }
 
@@ -51,8 +57,14 @@ void	render_right(t_data *data)
 			printf("count: %d\n", data->count);
 		}
 		else
+		{
 			if (chk_collect(data) == 0)
+			{
+				printf("Felicitation vous avez gagne en : %d coup !\n",
+					data->count);
 				end(data);
+			}
+		}
 	}
 }
 
@@ -73,8 +85,14 @@ void	render_left(t_data *data)
 			printf("count: %d\n", data->count);
 		}
 		else
+		{
 			if (chk_collect(data) == 0)
+			{
+				printf("Felicitation vous avez gagne en : %d coup !\n",
+					data->count);
 				end(data);
+			}
+		}
 	}
 }
 
@@ -95,7 +113,13 @@ void	render_down(t_data *data)
 			printf("count: %d\n", data->count);
 		}
 		else
+		{
 			if (chk_collect(data) == 0)
+			{
+				printf("Felicitation vous avez gagne en : %d coup !\n",
+					data->count);
 				end(data);
+			}
+		}
 	}
 }

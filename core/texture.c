@@ -6,7 +6,7 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:51:23 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/08 23:30:18 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:50:21 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	end(t_data *data)
 	}
 	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
-	printf("Felicitation vous avez gagne en : %d coup !\n", data->count);
 	exit(0);
 }
 

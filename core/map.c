@@ -6,7 +6,7 @@
 /*   By: asimon <asimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:40:39 by asimon            #+#    #+#             */
-/*   Updated: 2022/01/08 23:28:21 by asimon           ###   ########.fr       */
+/*   Updated: 2022/01/08 23:45:43 by asimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char	**map_core(char **str, t_data *data)
 	else
 	{
 		fd = open(str[1], O_RDONLY);
-		if (fd != 0)
+		if (fd > 0)
 			data->map = parse_map(fd, data);
 		else
 			return (ft_error("Error\nFailed to open file\n"));
