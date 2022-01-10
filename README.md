@@ -1,4 +1,4 @@
-# so_long
+# Project so_long - ecole 42
 
 Telechargement de la mlx:
 - https://github.com/42Paris/minilibx-linux
