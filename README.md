@@ -1,19 +1,34 @@
-# Project so_long - ecole 42
+# SO_LONG
+_Voici mon projet So_long pour l'ecole 42_
 
-Telechargement de la mlx:
-- https://github.com/42Paris/minilibx-linux
+## Idée Global
 
-bibliotheque de png:
-- https://www.vhv.rs/
+Création d'un jeu 2D a l'aide de l'utlisation de la bibliotheque graphique MLX
 
-resize un png:
-- https://onlinepngtools.com/resize-png
+## Compilation
 
-convertion en xpm:
-- https://anyconv.com/fr/convertisseur-de-png-en-xpm/
+```
+$ make
+```
 
-Guide pour l'utilisation de la minilib:
-- https://aurelienbrabant.fr/blog
+## Execution
 
-Man des prototypes de fonctions:
-- https://qst0.github.io/ft_libgfx/man_mlx_new_image.html
+Il y a plusieurs maps a dispositions dans le dossier 'maps/'
+```
+$ ./so_long map/map_correct.ber
+```
+***
+
+## Ressources
+
+* Telechargement de la MLX: https://github.com/42Paris/minilibx-linux
+
+* Bibliotheque de png: https://www.vhv.rs/
+
+* Resize un png: https://onlinepngtools.com/resize-png
+
+* Convertion en xpm: https://anyconv.com/fr/convertisseur-de-png-en-xpm/
+
+* Guide pour l'utilisation de la minilib: https://aurelienbrabant.fr/blog
+
+* Man des prototypes de fonctions de la MLX: https://qst0.github.io/ft_libgfx/man_mlx_new_image.html
