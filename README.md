@@ -1,4 +1,4 @@
-# SO_LONG
+# So_long
 _Voici mon projet So_long pour l'ecole 42_
 
 ## Idée Global
