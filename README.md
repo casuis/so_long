@@ -3,7 +3,7 @@ _Voici mon projet So_long pour l'ecole 42_
 
 ## Idée Global
 
-Création d'un jeu 2D a l'aide de l'utlisation de la bibliotheque graphique MLX
+Création d'un jeu 2D à l'aide de l'utlisation de la MLX
 
 ## Compilation
 
