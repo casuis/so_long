@@ -13,7 +13,7 @@ $ make
 
 ## Execution
 
-Il y a plusieurs maps a dispositions dans le dossier 'maps/'
+Il y a plusieurs maps à dispositions dans le dossier 'maps/'
 ```
 $ ./so_long map/map_correct.ber
 ```
