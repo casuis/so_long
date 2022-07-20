@@ -1,5 +1,4 @@
 # So_long
-[![asimon's 42Project Score](https://badge42.herokuapp.com/api/project/asimon/so_long)](https://github.com/JaeSeoKim/badge42)
 
 _Voici mon projet So_long pour l'ecole 42_
 
